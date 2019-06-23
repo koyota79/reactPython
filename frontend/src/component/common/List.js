@@ -28,7 +28,7 @@ const List = (props ) => {
                             <td>{i+1}</td>
                             {
                                 Object.getOwnPropertyNames( props.data.LIST[0]).map((keyObj ,n) => {
-                                    return (!keyObj.includes("id")?(
+                                    return (!keyObj.includes("id") && !keyObj.includes("__H")?(
                                                 <td key={n} onClick={() => props.onClick(item) } > 
                                                     {item[keyObj]} 
                                                 </td>

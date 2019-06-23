@@ -2,35 +2,34 @@ import React from 'react';
 import {Form ,Col ,Button  } from 'react-bootstrap';
 
 
-const ReportForm = ({value, onChange, onCreate, onKeyPress ,onUpdate ,onReset}) => {
+const ReportForm = ({value, onChange, onCreate, onKeyPress ,onUpdate ,onReset ,selectOption}) => {
     
   return (
     <Form > 
         <Form.Row>
-            <Form.Group as={Col} onChange={onChange}  controlId="gubun" value={value.gubun ||''}>
-            <Form.Label>구분</Form.Label>
-            <Form.Control as="select">
-                <option value='' selected={value.gubun ||''} >선택</option>
-                <option value='CRESYS' selected={value.gubun ||''} >크레시스</option>
-                <option value='LMS' selected={value.gubun ||''} >LMS</option>
-                <option value='MIS' selected={value.gubun ||''} >MIS</option>
+            <Form.Group as={Col} controlId="gubun">
+            {/* <Form.Label>구분</Form.Label> */}
+            <Form.Control as="select" onChange={onChange} value={value.gubun||''} >
+                {/* <option value='' >선택</option>
+                <option value='CRESYS' selected={ value.gubun=='CRESYS'?'true':'' }>CRESYS</option>
+                <option value='LMS'    selected={ value.gubun=='LMS'?'true':'' }>LMS</option>
+                <option value='MIS'    selected={ value.gubun=='MIS'?'true':'' }>MIS</option> */}
+                {selectOption}
             </Form.Control>
             </Form.Group>
 
             <Form.Group as={Col} controlId="document_num">
-            <Form.Label>문서번호</Form.Label>
-            <Form.Control onChange={onChange} onKeyPress={onKeyPress} value={value.document_num ||''}/>
+            {/* <Form.Label>문서번호</Form.Label> */}
+            <Form.Control placeholder="문서번호"  onChange={onChange} onKeyPress={onKeyPress} value={value.document_num ||''}/>
             </Form.Group>
         </Form.Row>
 
         <Form.Group controlId="title">
-            <Form.Label>제목</Form.Label>
-            <Form.Control placeholder="요청사항" onChange={onChange} onKeyPress={onKeyPress} value={value.title ||''} />
+            <Form.Control placeholder="제목(요청사항)" onChange={onChange} onKeyPress={onKeyPress} value={value.title ||''} />
         </Form.Group>
 
         <Form.Group controlId="content">
-            <Form.Label>내용</Form.Label>
-            <Form.Control placeholder="처리내용" onChange={onChange} onKeyPress={onKeyPress} value={value.content ||''} />
+            <Form.Control placeholder="내용(처리내용)" onChange={onChange} onKeyPress={onKeyPress} value={value.content ||''} />
         </Form.Group>
  
         {/* 

@@ -5,11 +5,10 @@ import { Route } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import Header from '../component/Header';
 import Gnb from '../component/Gnb';
-
 import { Container, Row, Col } from 'reactstrap';
 
 import Report from '../report/ReportHome'; 
-import Main from './Main';
+import MainHome from './MainHome';
 
 class Root extends Component {
     render() {
@@ -21,7 +20,7 @@ class Root extends Component {
                         <Row>
                         <Col sm={2}><Gnb /></Col>
                                 <Col sm={10}>         
-                                    <Route exact path="/"   component={Main}/>
+                                    <Route exact path="/"   component={MainHome}/>
                                     <Route path="/report"   component={Report}/>
                                 </Col>
                         </Row>
